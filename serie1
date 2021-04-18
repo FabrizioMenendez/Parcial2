@@ -1,0 +1,99 @@
+// Angel Fabrizio Menendez Solorzano
+//0909-20-10024
+// Programacion I 2021
+// Parcial 2 Serie II
+// Amilcar Josimar Sagastume Diaz 
+
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+//Vectores y variables
+int cur[2][5]; //[Vector][Estudiante]
+int suma_cur[2]; //[Vector del Curso]
+float promCur[2]; //[Suma de Vector de curso]
+int f, g, op; // Variables de puntero y seleccion de opcion
+
+// ingreso a cada curso
+void in_datos(){
+   for ( f = 0; f <= 1; f++ ){ 
+       for ( g = 0; g <= 4; g++ ){ 
+       cout << "Nota " << f + 1 << " del estudiante " << g + 1 << " = "; 
+       cin >> cur[f][g]; 
+       }
+   }
+}
+
+//calculo del promedio de los cursos
+void calculoProm(){
+   for ( f = 0; f <= 1; f++ ){ 
+       for ( g = 0; g <= 4; g++ ){ 
+           suma_cur[f] += cur[f][g]; 
+       }
+       promCur[f] = suma_cur[f] / 5; 
+   }
+}
+
+//mostrar los cursos y sus promedios 
+void mostrarCursos(){
+   cout << "Curso 1"; 
+   for ( g = 0; g <= 4; g++ ){ 
+       cout << "     " << cur[0][g];
+   }
+   cout << "\nPromedio del curso:  " << promCur[0]; 
+   cout << "Curso 2";
+   for ( g = 0; g <= 4; g++ ){ 
+       cout << "     " << cur[1][g];
+   }
+   cout << "\nPromedio del curso:  " << promCur[1]; 
+}
+
+
+int main(){ 
+do{
+   //menu de seleccion
+   cout << "Bienvenidos" << endl;
+   cout << "1. Ingresar datos" << endl;
+   cout << "2. primera nota del Curso 1" << endl;
+   cout << "3. última nota del Curso 2" << endl;
+   cout << "4. Calcular promedio." << endl;
+   cout << "5. Mostrar los dos Cursos, y el resultado Promedio de cada curso." << endl;
+   cout << "6. Finalizar." << endl;
+   cout << "Elegir una opcion --> "; cin >> op; 
+   cout << endl << endl;
+
+   switch ( op ){ 
+       case 1: 
+           in_datos(); 
+           system("cls");  
+           break; 
+       case 2: 
+           cout << "La primera nota del Vector 1 es: " << cur[0][0];  
+           getch(); 
+           system ("cls"); 
+           break;
+       case 3: 
+           cout << "La ultima nota del Vector 2 es: " << cur[1][4]; 
+           getch(); 
+           system ("cls"); 
+           break; 
+       case 4: 
+           calculoProm();
+           cout << "El calculo ha sido realizado" << endl;
+           system ("pause"); 
+           system ("cls"); 
+           break; 
+       case 5: 
+           mostrarCursos();
+           system ("cls"); 
+           break; 
+       case 6: break; 
+       default: 
+       cout << "\nSelecciona una de las opciones" << endl;
+       system ("pause"); 
+       system ("cls"); 
+   }
+} while ( op != 6 ); 
+
+} 
