@@ -1,0 +1,81 @@
+//Angel Fabrizio Menendez Solorzano
+//0909-20-10024
+//Programacion I 2021
+//Amilcar Josimar Sagastume Diaz
+//Parcial "
+//Serie III inciso 1
+
+//Librerias 
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+//Variables
+int alpha[3][3]; //Filas][Columnas]
+int tot[3]; //[Filas]
+int a, b, op; 
+
+//Ingreso de cada Curso
+void in_datos(){
+   for ( a = 0; a <= 2; a++ ){ 
+       for ( b = 0; b <= 2; b++ ){ 
+           cout << "Ingreso dato dentro fila " << a + 1 << " columna " << b + 1 << " = "; 
+           cin >> alpha[a][b]; 
+       }
+   }
+}
+
+//sumar filas de la matriz ALFA
+void s_total(){
+   tot[0] = alpha[0][0] + alpha[1][1] + alpha[2][2];
+   tot[1] = alpha[2][0] + alpha[2][1] + alpha[2][2];
+   tot[2] = alpha[2][0] + alpha[1][1] + alpha[0][2];
+}
+
+// matriz ALpha y vector TOTAL
+void mostrarMV(){
+   cout << "Matriz ALFA" << endl;
+   for ( a = 0; a <= 2; a++ ){ 
+       cout << "  " << alpha[a][0] << "  " << alpha[a][1] << "  " << alpha[a][2] << endl;
+   }
+   cout << endl << endl << endl << endl << endl; 
+   cout << "Vector TOTAL" << endl;
+   cout << "  " << tot[0] << "  " << tot[1] << "  " << tot[2] << endl;
+}
+
+//Estructura Principal C++
+int main(){ 
+   do{
+       
+       cout << "Bienvenido al programa" << endl;
+       cout << "1. Ingresar datos ALPHA" << endl;
+       cout << "2. sumas de filas de la matriz" << endl;
+       cout << "3. Mostrar la matriz ALPHA y vector TOTAL" << endl;
+       cout << "4. Finalizar" << endl;
+       cout << "Elegir una opcion: "; cin >> op; 
+       cout << endl << endl;
+       switch ( op ){ 
+           case 1: 
+               in_datos(); 
+               system ("cls"); 
+               break; 
+           case 2: 
+               s_total(); 
+               cout << "Las operaciones se han realizado con exito" << endl;
+               system ("pause"); 
+               system ("cls"); 
+               break;
+           case 3: 
+               mostrarMV(); 
+               getch(); 
+               system ("cls");
+               break; 
+           case 4: break;
+           default: 
+               cout << "\ningrese una opcion del menu" << endl;
+               system ("pause"); 
+               system ("cls"); 
+       }
+   } while ( op != 4 ); 
+}
