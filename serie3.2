@@ -1,0 +1,67 @@
+//Angel Fabrizio Menendez Solorzano
+//0909-20-10024
+//Programacion I 2021
+//Amilcar Josimar Sagastume Diaz
+//Parcial 2 
+//serie III inciso 2
+
+//Librerias
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+//Variables
+int vectorA[3], vectorB[3], vectorC[3]; 
+float promC; 
+int ptr, sumaC; 
+
+
+void in_datos_a(){
+   for ( ptr = 0; ptr <= 2; ptr++ ){ 
+       cout << "Ingrese el dato " << ptr + 1 << " Vector A: "; 
+       cin >> vectorA[ptr]; 
+   }
+}
+
+
+void in_datos_b(){
+   for ( ptr = 0; ptr <= 2; ptr++ ){ 
+       cout << "Ingrese el dato " << ptr + 1 << " Vector B: "; 
+       cin >> vectorB[ptr]; 
+   }
+}
+
+
+void resta_v(){
+   for ( ptr = 0; ptr <= 2; ptr++ ){ 
+       vectorC[ptr] = vectorA[ptr] - vectorB[ptr];
+   }
+}
+
+
+void prom_vec_c(){
+   for ( ptr = 0; ptr <= 2; ptr++ ){ 
+       sumaC += vectorC[ptr];
+   }
+   promC = sumaC / 3;
+}
+
+//Funcion principal de C++
+int main(){ 
+   cout << "Bienvenido al programa" << endl << endl;
+   in_datos_a(); 
+   in_datos_b(); 
+   resta_v(); 
+   prom_vec_c();
+   cout << endl;
+  
+   cout << "   Vector A" << endl;
+   cout << "  " << vectorA [0] << "  " << vectorA [1] << "  " << vectorA [2] << endl << endl;
+   cout << "   Vector B" << endl;
+   cout << "  " << vectorB [0] << "  " << vectorB [1] << "  " << vectorB [2] << endl << endl;
+   cout << "   Vector C" << endl;
+   cout << "  " << vectorC [0] << "  " << vectorC [1] << "  " << vectorC [2] << endl << endl;
+   cout << "\nPromedio del Vector C = " << promC;
+   getch();
+}
